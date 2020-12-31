@@ -1,7 +1,6 @@
 const { build } = require("esbuild");
 const { dirname, resolve } = require("path");
-// @ts-ignore
-const { solidPlugin } = require("../dist/plugin");
+const { solidPlugin } = require("..");
 
 const ROOT = dirname(__dirname);
 const TESTS = resolve(ROOT, "tests");

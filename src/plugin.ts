@@ -2,6 +2,8 @@ import { parse } from "path";
 import { Plugin } from "esbuild";
 import { readFile } from "fs/promises";
 import { transformAsync } from "@babel/core";
+import solid from "babel-preset-solid";
+import ts from "@babel/preset-typescript";
 
 const JSX_RE = /<.+?>/gim;
 
@@ -19,7 +21,7 @@ export function solidPlugin(): Plugin {
         const filename = name + ext;
 
         const { code } = await transformAsync(source, {
-          presets: ["solid", "@babel/preset-typescript"],
+          presets: [solid, ts],
           filename,
           sourceMaps: "inline",
         });

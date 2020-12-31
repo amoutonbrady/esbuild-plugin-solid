@@ -1,4 +1,4 @@
-# esbuild-solid
+# esbuild-plugin-solid
 
 Plugin to compile solid jsx components with esbuild.
 
@@ -9,15 +9,15 @@ Plugin to compile solid jsx components with esbuild.
 ```bash
 # For npm
 npm install solid-js
-npm install -D esbuild esbuild-solid
+npm install -D esbuild esbuild-plugin-solid
 
 # For pnpm
 pnpm add solid-js
-pnpm add -D esbuild esbuild-solid
+pnpm add -D esbuild esbuild-plugin-solid
 
 # For yarn
 yarn add solid-js
-yarn add -D esbuild esbuild-solid
+yarn add -D esbuild esbuild-plugin-solid
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ Once installed you need to configure `esbuild` to use this plugin.
 
 ```js
 const { build } = require('esbuild');
-const { solidPlugin } = require('esbuild-solid');
+const { solidPlugin } = require('esbuild-plugin-solid');
 
 build({
   entryPoints: ['app.jsx'],

@@ -20,7 +20,7 @@
   "scripts": {
     "build": "node scripts/build && tsc",
     "test": "node scripts/test && serve tests",
-    "prepublishOnly": "pnpm check",
+    "prepublishOnly": "pnpm build && pnpm check",
     "check": "package-check"
   },
   "keywords": [

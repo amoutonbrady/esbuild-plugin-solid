@@ -16,7 +16,7 @@ export function solidPlugin(): Plugin {
         const source = await readFile(args.path, { encoding: "utf-8" });
         const isJsx = JSX_RE.test(source);
 
-        if (!isJsx) return { contents: source, loader: "js" };
+        if (!isJsx) return { contents: source, loader: "ts" };
         const { name, ext } = parse(args.path);
         const filename = name + ext;
 

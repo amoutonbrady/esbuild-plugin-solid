@@ -1,3 +1,4 @@
 node_modules
 tests/*.js
 dist
+.pnpm-debug.log

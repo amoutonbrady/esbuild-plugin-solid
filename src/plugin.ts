@@ -5,18 +5,14 @@ import { transformAsync } from "@babel/core";
 import solid from "babel-preset-solid";
 import ts from "@babel/preset-typescript";
 
-const JSX_RE = /<.+?>/gim;
-
 export function solidPlugin(): Plugin {
   return {
     name: "esbuild:solid",
 
     setup(build) {
-      build.onLoad({ filter: /\.(t|j)sx?$/ }, async (args) => {
+      build.onLoad({ filter: /\.(t|j)sx$/ }, async (args) => {
         const source = await readFile(args.path, { encoding: "utf-8" });
-        const isJsx = JSX_RE.test(source);
 
-        if (!isJsx) return { contents: source, loader: "ts" };
         const { name, ext } = parse(args.path);
         const filename = name + ext;
 

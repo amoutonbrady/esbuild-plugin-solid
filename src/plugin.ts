@@ -5,7 +5,12 @@ import { transformAsync } from "@babel/core";
 import solid from "babel-preset-solid";
 import ts from "@babel/preset-typescript";
 
-export function solidPlugin(): Plugin {
+export interface SolidOptions {
+  hydratable?: boolean;
+  generate?: 'dom' | 'ssr';
+}
+
+export function solidPlugin(options: SolidOptions = {}): Plugin {
   return {
     name: "esbuild:solid",
 
@@ -17,7 +22,7 @@ export function solidPlugin(): Plugin {
         const filename = name + ext;
 
         const { code } = await transformAsync(source, {
-          presets: [solid, ts],
+          presets: [[solid, options], ts],
           filename,
           sourceMaps: "inline",
         });

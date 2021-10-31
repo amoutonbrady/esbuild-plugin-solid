@@ -32,22 +32,22 @@
   "author": "Alexandre Mouton-Brady",
   "license": "ISC",
   "peerDependencies": {
-    "esbuild": "^0.11",
+    "esbuild": "^0.13",
     "solid-js": ">= 0.26"
   },
   "dependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-typescript": "^7.15.0",
-    "babel-preset-solid": "^1.1.2"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "babel-preset-solid": "^1.2.0"
   },
   "devDependencies": {
     "@skypack/package-check": "^0.2.2",
     "@types/babel__core": "^7.1.16",
-    "@types/node": "^16.7.13",
+    "@types/node": "^16.11.6",
     "del": "^6.0.0",
-    "esbuild": "^0.12.25",
-    "serve": "^12.0.0",
-    "solid-js": "^1.1.2",
-    "typescript": "^4.4.2"
+    "esbuild": "^0.13.12",
+    "serve": "^12.0.1",
+    "solid-js": "^1.2.0",
+    "typescript": "^4.4.4"
   }
 }

@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/amoutonbrady/esbuild-solid"
+    "url": "https://github.com/amoutonbrady/esbuild-plugin-solid"
   },
   "scripts": {
     "build": "node scripts/build && tsc",
@@ -33,8 +33,8 @@
   "author": "Alexandre Mouton-Brady",
   "license": "ISC",
   "peerDependencies": {
-    "esbuild": "^0.13",
-    "solid-js": ">= 1.1"
+    "esbuild": ">=0.12",
+    "solid-js": ">= 1.0"
   },
   "dependencies": {
     "@babel/core": "^7.16.0",
@@ -46,7 +46,7 @@
     "@types/babel__core": "^7.1.16",
     "@types/node": "^16.11.9",
     "del": "^6.0.0",
-    "esbuild": "^0.13.14",
+    "esbuild": "^0.13.15",
     "serve": "^13.0.2",
     "solid-js": "^1.2.5",
     "typescript": "^4.5.2"

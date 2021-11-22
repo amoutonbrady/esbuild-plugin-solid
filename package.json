@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-solid",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Solid's integration for ESBuild",
   "main": "dist/cjs/plugin.js",
   "module": "dist/esm/plugin.js",
@@ -15,11 +15,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/amoutonbrady/esbuild-solid"
+    "url": "https://github.com/amoutonbrady/esbuild-plugin-solid"
   },
   "scripts": {
     "build": "node scripts/build && tsc",
     "test": "node scripts/test && serve tests",
+    "prepare": "npm run build",
     "prepublishOnly": "pnpm build && pnpm check",
     "check": "package-check"
   },
@@ -32,22 +33,22 @@
   "author": "Alexandre Mouton-Brady",
   "license": "ISC",
   "peerDependencies": {
-    "esbuild": "^0.11",
-    "solid-js": ">= 0.26"
+    "esbuild": ">=0.12",
+    "solid-js": ">= 1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/preset-typescript": "^7.15.0",
-    "babel-preset-solid": "^1.1.2"
+    "@babel/core": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "babel-preset-solid": "^1.2.5"
   },
   "devDependencies": {
     "@skypack/package-check": "^0.2.2",
     "@types/babel__core": "^7.1.16",
-    "@types/node": "^16.7.13",
+    "@types/node": "^16.11.9",
     "del": "^6.0.0",
-    "esbuild": "^0.12.25",
-    "serve": "^12.0.0",
-    "solid-js": "^1.1.2",
-    "typescript": "^4.4.2"
+    "esbuild": "^0.13.15",
+    "serve": "^13.0.2",
+    "solid-js": "^1.2.5",
+    "typescript": "^4.5.2"
   }
 }

@@ -20,6 +20,7 @@
   "scripts": {
     "build": "node scripts/build && tsc",
     "test": "node scripts/test && serve tests",
+    "prepare": "npm run build",
     "prepublishOnly": "pnpm build && pnpm check",
     "check": "package-check"
   },

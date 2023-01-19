@@ -1,9 +1,8 @@
-const { build } = require("esbuild");
-const { dirname, resolve } = require("path");
-const { solidPlugin } = require("..");
+import { build } from "esbuild";
+import { resolve } from "path";
+import { solidPlugin } from "../dist/esm/plugin.js";
 
-const ROOT = dirname(__dirname);
-const TESTS = resolve(ROOT, "tests");
+const TESTS = resolve("tests");
 
 build({
   platform: "browser",
@@ -53,5 +52,3 @@ build({
   outfile: resolve(TESTS, "ssr-hydratable.js"),
   minify: process.env.NODE_ENV === 'production',
 }).catch(() => process.exit(1));
-
-

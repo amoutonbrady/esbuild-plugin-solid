@@ -5,6 +5,7 @@
   "main": "dist/cjs/plugin.js",
   "module": "dist/esm/plugin.js",
   "types": "dist/types/plugin.d.ts",
+  "type": "module",
   "exports": {
     "default": "./dist/cjs/plugin.js",
     "node": "./dist/cjs/plugin.js",
@@ -18,8 +19,8 @@
     "url": "https://github.com/amoutonbrady/esbuild-plugin-solid"
   },
   "scripts": {
-    "build": "node scripts/build && tsc",
-    "test": "node scripts/test && serve tests",
+    "build": "node ./scripts/build.js && tsc",
+    "test": "node ./scripts/test.js && serve tests",
     "prepare": "npm run build",
     "prepublishOnly": "pnpm build && pnpm check",
     "check": "package-check"

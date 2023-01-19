@@ -1,11 +1,10 @@
-const { build } = require("esbuild");
-const { dirname, resolve } = require("path");
-const del = require("del");
+import { build } from "esbuild";
+import { resolve } from "path";
+import { deleteAsync } from "del";
 
-const ROOT = dirname(__dirname);
-const SRC = resolve(ROOT, "src");
+const SRC = resolve("src");
 
-del([resolve(ROOT, "dist")])
+deleteAsync([resolve("dist")])
   .then(() => {
     build({
       platform: "node",

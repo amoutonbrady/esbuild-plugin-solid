@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "strictNullChecks": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
     "allowSyntheticDefaultImports": true,
@@ -8,6 +10,7 @@
     "moduleResolution": "node",
     "declaration": true,
     "emitDeclarationOnly": true,
+    "skipLibCheck": true,
     "declarationDir": "dist/types"
   },
   "include": ["src"]

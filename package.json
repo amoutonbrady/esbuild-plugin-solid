@@ -7,9 +7,11 @@
   "types": "dist/types/plugin.d.ts",
   "type": "module",
   "exports": {
-    "default": "./dist/cjs/plugin.js",
-    "node": "./dist/cjs/plugin.js",
-    "import": "./dist/esm/plugin.js"
+    ".": {
+      "default": "./dist/cjs/plugin.js",
+      "node": "./dist/cjs/plugin.js",
+      "import": "./dist/esm/plugin.js"
+    }
   },
   "files": [
     "dist"

@@ -1,6 +1,6 @@
 import { build } from "esbuild";
 import { resolve } from "path";
-import { solidPlugin } from "../dist/esm/plugin.js";
+import { solidPlugin } from "../dist/esm/plugin.mjs";
 
 const TESTS = resolve("tests");
 

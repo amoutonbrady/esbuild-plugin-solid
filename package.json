@@ -2,15 +2,15 @@
   "name": "esbuild-plugin-solid",
   "version": "0.4.2",
   "description": "Solid's integration for ESBuild",
-  "main": "dist/cjs/plugin.js",
-  "module": "dist/esm/plugin.js",
+  "main": "dist/cjs/plugin.cjs",
+  "module": "dist/esm/plugin.mjs",
   "types": "dist/types/plugin.d.ts",
   "type": "module",
   "exports": {
     ".": {
-      "default": "./dist/cjs/plugin.js",
-      "node": "./dist/cjs/plugin.js",
-      "import": "./dist/esm/plugin.js"
+      "default": "./dist/cjs/plugin.cjs",
+      "node": "./dist/cjs/plugin.cjs",
+      "import": "./dist/esm/plugin.mjs"
     }
   },
   "files": [

@@ -15,9 +15,11 @@ deleteAsync([resolve("dist")])
         "babel-preset-solid",
         "@babel/preset-typescript",
       ],
-      target: "esnext",
+      target: "es2021",
       outdir: "dist/cjs",
+      outExtension: { ".js": ".cjs" },
       format: "cjs",
+      sourcemap: true,
     });
 
     build({
@@ -29,9 +31,11 @@ deleteAsync([resolve("dist")])
         "babel-preset-solid",
         "@babel/preset-typescript",
       ],
-      target: "esnext",
+      target: "es2021",
       outdir: "dist/esm",
+      outExtension: { ".js": ".mjs" },
       format: "esm",
+      sourcemap: true,
     });
   })
   .catch(() => process.exit(1));

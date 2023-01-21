@@ -12,14 +12,14 @@ import ts from "@babel/preset-typescript";
 /** Configuration options for esbuild-plugin-solid */
 export interface Options {
   /** The options to use for @babel/preset-typescript @default {} */
-  typescript: object
+  typescript?: object
   /**
    * Pass any additional babel transform options. They will be merged with
    * the transformations required by Solid.
    *
    * @default {}
    */
-  babel:
+  babel?:
     | TransformOptions
     | ((source: string, id: string, ssr: boolean) => TransformOptions)
     | ((source: string, id: string, ssr: boolean) => Promise<TransformOptions>);
@@ -29,7 +29,7 @@ export interface Options {
    *
    * @default {}
    */
-  solid: {
+  solid?: {
     /**
      * The name of the runtime module to import the methods from.
      *

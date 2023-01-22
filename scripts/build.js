@@ -1,11 +1,10 @@
-const { build } = require("esbuild");
-const { dirname, resolve } = require("path");
-const del = require("del");
+import { build } from "esbuild";
+import { resolve } from "path";
+import { deleteAsync } from "del";
 
-const ROOT = dirname(__dirname);
-const SRC = resolve(ROOT, "src");
+const SRC = resolve("src");
 
-del([resolve(ROOT, "dist")])
+deleteAsync([resolve("dist")])
   .then(() => {
     build({
       platform: "node",
@@ -16,9 +15,11 @@ del([resolve(ROOT, "dist")])
         "babel-preset-solid",
         "@babel/preset-typescript",
       ],
-      target: "esnext",
+      target: "es2021",
       outdir: "dist/cjs",
+      outExtension: { ".js": ".cjs" },
       format: "cjs",
+      sourcemap: true,
     });
 
     build({
@@ -30,9 +31,11 @@ del([resolve(ROOT, "dist")])
         "babel-preset-solid",
         "@babel/preset-typescript",
       ],
-      target: "esnext",
+      target: "es2021",
       outdir: "dist/esm",
+      outExtension: { ".js": ".mjs" },
       format: "esm",
+      sourcemap: true,
     });
   })
   .catch(() => process.exit(1));

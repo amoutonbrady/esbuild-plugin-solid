@@ -1,9 +1,8 @@
-const { build } = require("esbuild");
-const { dirname, resolve } = require("path");
-const { solidPlugin } = require("..");
+import { build } from "esbuild";
+import { resolve } from "path";
+import { solidPlugin } from "../dist/esm/plugin.mjs";
 
-const ROOT = dirname(__dirname);
-const TESTS = resolve(ROOT, "tests");
+const TESTS = resolve("tests");
 
 build({
   platform: "browser",
@@ -19,7 +18,7 @@ build({
   platform: 'node',
   bundle: true,
   entryPoints: [resolve(TESTS, "ssr.tsx")],
-  plugins: [solidPlugin({ generate: 'ssr' })],
+  plugins: [solidPlugin({ solid: { generate: 'ssr' } })],
   target: "esnext",
   format: "esm",
   outfile: resolve(TESTS, "ssr.js"),
@@ -33,7 +32,7 @@ build({
   platform: "browser",
   bundle: true,
   entryPoints: [resolve(TESTS, "index.tsx")],
-  plugins: [solidPlugin({ hydratable: true })],
+  plugins: [solidPlugin({ solid: { hydratable: 'ssr' } })],
   target: "esnext",
   format: "esm",
   outfile: resolve(TESTS, "hydratable.js"),
@@ -43,7 +42,7 @@ build({
   platform: 'node',
   bundle: true,
   entryPoints: [resolve(TESTS, "ssr.tsx")],
-  plugins: [solidPlugin({ generate: 'ssr', hydratable: true })],
+  plugins: [solidPlugin({ solid: { generate: 'ssr', hydratable: true } })],
   target: "esnext",
   format: "esm",
   // external: [
@@ -53,5 +52,3 @@ build({
   outfile: resolve(TESTS, "ssr-hydratable.js"),
   minify: process.env.NODE_ENV === 'production',
 }).catch(() => process.exit(1));
-
-

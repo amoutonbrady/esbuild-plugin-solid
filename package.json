@@ -2,13 +2,16 @@
   "name": "esbuild-plugin-solid",
   "version": "0.4.2",
   "description": "Solid's integration for ESBuild",
-  "main": "dist/cjs/plugin.js",
-  "module": "dist/esm/plugin.js",
+  "main": "dist/cjs/plugin.cjs",
+  "module": "dist/esm/plugin.mjs",
   "types": "dist/types/plugin.d.ts",
+  "type": "module",
   "exports": {
-    "default": "./dist/cjs/plugin.js",
-    "node": "./dist/cjs/plugin.js",
-    "import": "./dist/esm/plugin.js"
+    ".": {
+      "default": "./dist/cjs/plugin.cjs",
+      "node": "./dist/cjs/plugin.cjs",
+      "import": "./dist/esm/plugin.mjs"
+    }
   },
   "files": [
     "dist"
@@ -18,8 +21,8 @@
     "url": "https://github.com/amoutonbrady/esbuild-plugin-solid"
   },
   "scripts": {
-    "build": "node scripts/build && tsc",
-    "test": "node scripts/test && serve tests",
+    "build": "node ./scripts/build.js && tsc",
+    "test": "node ./scripts/test.js && serve tests",
     "prepare": "npm run build",
     "prepublishOnly": "pnpm build && pnpm check",
     "check": "package-check"
@@ -37,18 +40,18 @@
     "solid-js": ">= 1.0"
   },
   "dependencies": {
-    "@babel/core": "^7.16.5",
-    "@babel/preset-typescript": "^7.16.5",
-    "babel-preset-solid": "^1.2.6"
+    "@babel/core": "^7.20.12",
+    "@babel/preset-typescript": "^7.18.6",
+    "babel-preset-solid": "^1.6.9"
   },
   "devDependencies": {
     "@skypack/package-check": "^0.2.2",
-    "@types/babel__core": "^7.1.17",
-    "@types/node": "^17.0.4",
-    "del": "^6.0.0",
-    "esbuild": "^0.14.8",
-    "serve": "^13.0.2",
-    "solid-js": "^1.2.6",
-    "typescript": "^4.5.4"
+    "@types/babel__core": "^7.20.0",
+    "@types/node": "^18.11.18",
+    "del": "^7.0.0",
+    "esbuild": "^0.17.3",
+    "serve": "^14.1.2",
+    "solid-js": "^1.6.9",
+    "typescript": "^4.9.4"
   }
 }

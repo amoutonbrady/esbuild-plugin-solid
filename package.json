@@ -1,6 +1,6 @@
 {
   "name": "esbuild-plugin-solid",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Solid's integration for ESBuild",
   "main": "dist/cjs/plugin.cjs",
   "module": "dist/esm/plugin.mjs",

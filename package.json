@@ -8,9 +8,10 @@
   "type": "module",
   "exports": {
     ".": {
-      "default": "./dist/cjs/plugin.cjs",
+      "types": "./dist/types/plugin.d.ts",
       "node": "./dist/cjs/plugin.cjs",
-      "import": "./dist/esm/plugin.mjs"
+      "import": "./dist/esm/plugin.mjs",
+      "default": "./dist/cjs/plugin.cjs"
     }
   },
   "files": [

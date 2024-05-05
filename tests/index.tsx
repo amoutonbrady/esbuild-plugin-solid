@@ -8,4 +8,4 @@ const App = () => {
   return <button onClick={[inc, 1]}>{count()}</button>;
 };
 
-render(App, document.getElementById("app"));
+render(App, document.getElementById("app")!);

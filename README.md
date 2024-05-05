@@ -2,17 +2,6 @@
 
 Plugin to compile [solid-js](https://github.com/ryansolid/solid) jsx components with [esbuild](https://esbuild.github.io/).
 
-/!\ **Disclaimer** /!\
-
-At the time of writing this, `esbuild` is not AS performant in term of dead code elimination as `rollup` is.
-
-Rollup is the preferred way to bundle solid apps as it generally produce smaller code.
-
-In my tests, a hello world :
-
-* `rollup`: 5.95kb
-* `esbuild`: 9.65kb
-
 ## Install
 
 `solid-js` and `esbuild` are peer dependencies

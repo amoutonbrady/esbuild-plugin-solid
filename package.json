@@ -29,7 +29,7 @@
   "scripts": {
     "build": "unbuild",
     "test": "jiti ./scripts/test && serve tests",
-    "prepublishOnly": "pnpm build && pnpm check"
+    "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
     "esbuild": ">=0.20",

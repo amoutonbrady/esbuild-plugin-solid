@@ -1,6 +1,6 @@
-import { parse } from "path";
 import { Plugin } from "esbuild";
-import { readFile } from "fs/promises";
+import { parse } from "node:path";
+import { readFile } from "node:fs/promises";
 import { transformAsync, TransformOptions } from "@babel/core";
 // @ts-ignore
 import solid from "babel-preset-solid";
@@ -12,7 +12,7 @@ import ts from "@babel/preset-typescript";
 /** Configuration options for esbuild-plugin-solid */
 export interface Options {
   /** The options to use for @babel/preset-typescript @default {} */
-  typescript?: object
+  typescript?: object;
   /**
    * Pass any additional babel transform options. They will be merged with
    * the transformations required by Solid.
@@ -46,7 +46,7 @@ export interface Options {
      *
      * @default "dom"
      */
-    generate?: 'ssr' | 'dom' | 'universal';
+    generate?: "ssr" | "dom" | "universal";
 
     /**
      * Indicate whether the output should contain hydratable markers.
@@ -100,10 +100,13 @@ export function solidPlugin(options?: Options): Plugin {
         const filename = name + ext;
 
         const result = await transformAsync(source, {
-          presets: [[solid, options?.solid ?? {}], [ts, options?.typescript ?? {}]],
+          presets: [
+            [solid, options?.solid ?? {}],
+            [ts, options?.typescript ?? {}],
+          ],
           filename,
           sourceMaps: "inline",
-          ...(options?.babel ?? {})
+          ...(options?.babel ?? {}),
         });
 
         if (result?.code === undefined || result.code === null) {

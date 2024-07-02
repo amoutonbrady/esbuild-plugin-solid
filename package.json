@@ -32,7 +32,7 @@
     "prepublishOnly": "pnpm build"
   },
   "peerDependencies": {
-    "esbuild": ">=0.20",
+    "esbuild": "^0.21.4",
     "solid-js": ">= 1.0"
   },
   "dependencies": {
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.0",
     "@types/node": "^20.12.8",
-    "esbuild": "^0.20.2",
+    "esbuild": "^0.21.4",
     "jiti": "^1.21.0",
     "serve": "^14.2.3",
     "solid-js": "^1.6.9",

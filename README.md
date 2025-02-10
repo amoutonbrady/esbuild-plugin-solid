@@ -25,16 +25,40 @@ yarn add -D esbuild esbuild-plugin-solid
 Once installed you need to configure `esbuild` to use this plugin.
 
 ```js
-const { build } = require('esbuild');
-const { solidPlugin } = require('esbuild-plugin-solid');
+const { build } = require("esbuild");
+const { solidPlugin } = require("esbuild-plugin-solid");
 
 build({
-  entryPoints: ['app.jsx'],
+  entryPoints: ["app.jsx"],
   bundle: true,
-  outfile: 'out.js',
+  outfile: "out.js",
   plugins: [solidPlugin()],
-}).catch(() => process.exit(1))
+  // Required configuration for proper development/production handling
+  define: {
+    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+  },
+  conditions: [process.env.NODE_ENV],
+}).catch(() => process.exit(1));
 ```
+
+### Important Note About Environment Configuration
+
+Solid uses conditional exports to provide different builds for development and production environments. To ensure proper functionality, you need to configure esbuild with the following options:
+
+1. Set the `define` option to properly inject the `NODE_ENV` environment variable:
+
+   ```js
+   define: {
+     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+   }
+   ```
+
+2. Add the environment to esbuild's conditions:
+   ```js
+   conditions: [process.env.NODE_ENV];
+   ```
+
+Make sure your `NODE_ENV` is set to either `'development'` or `'production'`. These configurations ensure that Solid can properly determine the build environment and provide the appropriate optimizations and development tools.
 
 ## Configuration
 
@@ -44,7 +68,7 @@ The following options are available and can be passed to the plugin:
 /** Configuration options for esbuild-plugin-solid */
 export interface Options {
   /** The options to use for @babel/preset-typescript @default {} */
-  typescript: object
+  typescript: object;
   /**
    * Pass any additional babel transform options. They will be merged with
    * the transformations required by Solid.
@@ -78,7 +102,7 @@ export interface Options {
      *
      * @default "dom"
      */
-    generate?: 'ssr' | 'dom' | 'universal';
+    generate?: "ssr" | "dom" | "universal";
 
     /**
      * Indicate whether the output should contain hydratable markers.

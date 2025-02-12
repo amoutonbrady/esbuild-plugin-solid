@@ -11,6 +11,8 @@ import ts from "@babel/preset-typescript";
 
 /** Configuration options for esbuild-plugin-solid */
 export interface Options {
+  /** The filter to decide which files to transform @default /\.(t|j)sx$/ */
+  filter?: RegExp;
   /** The options to use for @babel/preset-typescript @default {} */
   typescript?: object;
   /**
@@ -93,7 +95,7 @@ export function solidPlugin(options?: Options): Plugin {
     name: "esbuild:solid",
 
     setup(build) {
-      build.onLoad({ filter: /\.(t|j)sx$/ }, async (args) => {
+      build.onLoad({ filter: options?.filter ?? /\.(t|j)sx$/ }, async (args) => {
         const source = await readFile(args.path, { encoding: "utf-8" });
 
         const { name, ext } = parse(args.path);
